@@ -17,7 +17,7 @@ function init() {
 
 function ready() {
     if (window.ikwin) {
-        return Promise.resolve(window.ikwin)
+        return Promise.resolve(window.ikwin.serviceManager)
     }
 
     return new Promise((resolve, reject) => {
