@@ -1,6 +1,6 @@
 {
   "name": "ikwin-core",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "IKWIN core.",
   "directories": {
     "lib": "./lib"
@@ -29,5 +29,9 @@
     "babel-core": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "ikwin-expect": "^1.0.1",
+    "ikwin-service-manager": "^1.0.0"
   }
 }
