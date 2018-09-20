@@ -1,27 +1,27 @@
 import expect from 'ikwin-expect'
 import ServiceManager from 'ikwin-service-manager'
 
-let serviceManager
+window.ikwin = window.ikwin || {ready: false}
 
 function getServiceManager() {
-    if (!serviceManager) {
-        serviceManager = new ServiceManager()
+    if (!window.ikwin.serviceManager) {
+      window.ikwin.serviceManager = new ServiceManager()
     }
 
-    return serviceManager
+    return window.ikwin.serviceManager
 }
 
 function init() {
-    window.ikwin = {serviceManager: getServiceManager()}
+    window.ikwin.ready = true
 }
 
 function ready() {
-    if (window.ikwin) {
+    if (window.ikwin.ready) {
         return Promise.resolve(window.ikwin.serviceManager)
     }
 
     return new Promise((resolve, reject) => {
-        expect(() => window.ikwin).then(() => resolve(window.ikwin.serviceManager))
+        expect(() => window.ikwin.ready).then(() => resolve(window.ikwin.serviceManager))
     })
 }
 
